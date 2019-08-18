@@ -9,17 +9,20 @@
 
 ### jni ndk编译
 1. /Users/yuanlang/Library/Android/sdk/ndk-bundle/ndk-build
-2. build.gradle as编译过程,指定so名称和路径
-        ndk{
-            moduleName "JniLib"
-            // abiFilters "armeabi", "armeabi-v7a", "x86" //输出指定的三种abi体系下的so库
-        }
-        sourceSets.main{
-            //屏蔽srcDirs
-            jni.srcDirs = []
-            //指定libs
-            jniLibs.srcDir "src/main/libs"
-        }
+2. build.gradle defaultConfig添加如下配置。as编译过程需要,指定so名称和路径
+```
+    ndk{
+        moduleName "JniLib"
+        // abiFilters "armeabi", "armeabi-v7a", "x86" //输出指定的三种abi体系下的so库
+    }
+    sourceSets.main{
+        //屏蔽srcDirs
+        jni.srcDirs = []
+        //指定libs
+        jniLibs.srcDir "src/main/libs"
+    }
+```
+
 
 
 ### 签名校验
